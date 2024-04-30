@@ -13,5 +13,7 @@ public class App {
         System.out.println("두 번째 숫자를 입력하세요 :");
         int num2 = sc.nextInt();
 
+        System.out.println("사칙연산 기호를 입력하세요 :");
+        char op = sc.next().charAt(0);
     }
 }
