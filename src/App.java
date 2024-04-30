@@ -26,6 +26,13 @@ public class App {
                 calculator.removeResult();
             }
 
+            // 데이터 값 확인
+            System.out.print("데이터를 확인하시겠습니까? (네 / 아니오)");
+            String ck = sc.next();
+            if(ck.equals("네")) {
+                calculator.inquiryResults();
+            }
+
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) ");
             String st = sc.next();
 

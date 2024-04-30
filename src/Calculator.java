@@ -24,6 +24,10 @@ public class Calculator {
         }
     }
 
+    public void inquiryResults(){
+        System.out.println(getRes());
+    }
+
     public int calculate(int num1, int num2, char op) throws InputExcetpion {
         int result = 0;
 
