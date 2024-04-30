@@ -19,7 +19,9 @@ public class Calculator {
 
     // 가장 오래된 값을 지워야 하기때문에 인덱스 0
     public void removeResult(){
-        res.remove(0);
+        if(!res.isEmpty()){
+            res.remove(0);
+        }
     }
 
     public int calculate(int num1, int num2, char op) throws InputExcetpion {
@@ -28,12 +30,15 @@ public class Calculator {
         switch (op){
             case '+' -> {
                 result = num1 + num2;
+                break;
             }
             case '-' -> {
                 result = num1 - num2;
+                break;
             }
             case '*' -> {
                 result = num1 * num2;
+                break;
             }
             case '/' -> {
                 //  분모가 0보다 작거나 같으면 Exception 발생
