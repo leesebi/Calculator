@@ -2,46 +2,43 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+
 public class Calculator {
     private List<Integer> res = new ArrayList<>();
 
-    public int add(int x, int y) {
-        return x+y;
+    // 필드에 접근해 가져올수 있도록 Getter 메서드
+    public List<Integer> getRes() {
+        return res;
     }
 
-    public int sub(int x, int y){
-        return x-y;
+    // 필드에 접근해 수정할 수 있도록
+    public void setRes(List<Integer> res) {
+        this.res = res;
     }
-
-    public int multi(int x, int y){
-        return x * y;
-    }
-
-    public int divide(int x, int y){
-        return x/y;
-    }
-
 
     public int calculate(int num1, int num2, char op) throws InputExcetpion {
         int result = 0;
 
         switch (op){
             case '+' -> {
-                result = add(num1, num2);
+                result = num1 + num2;
             }
             case '-' -> {
-                result = sub(num1, num2);
+                result = num1 - num2;
             }
             case '*' -> {
-                result = multi(num1, num2);
+                result = num1 * num2;
             }
             case '/' -> {
+                //  분모가 0보다 작거나 같으면 Exception 발생
                 if(num2 <= 0) {
                     throw new InputExcetpion();
                 }
-                result = divide(num1, num2);
+                result = num1/num2;
             }
 
+            // case외에 다른 연산자가 들어오면 Exception 발생
             default -> throw new InputExcetpion();
         }
         res.add(result);
