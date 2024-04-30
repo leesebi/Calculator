@@ -6,9 +6,11 @@ import java.util.regex.Pattern;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int ans [] = new int[10];
+        int[] ans = new int[10];
 
-        for(int i=0; i<10; i++){
+        boolean flag = true;
+        int i = 0;
+        while(flag){
             System.out.print("첫 번째 숫자를 입력하세요 :");
             int num1 = sc.nextInt();
 
@@ -39,8 +41,26 @@ public class App {
                 }
             }
             ans[i] = result;
+            i++;
             System.out.println("결과 : " + result);
-        }
 
+            if(i == 10) {
+                System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+                String st = sc.next();
+                if(st.equals("exit")) flag = false;
+                else{
+                    int[] arr =new int[10];
+                    int x = 1;
+                    for(int j=0; j<9; j++){
+                        arr[j] = ans[x];
+                        x++;
+                    }
+                    for(int j=0; j<9; j++){
+                        ans[j] = arr[j];
+                    }
+                    i--;
+                }
+            }
+        }
     }
 }
