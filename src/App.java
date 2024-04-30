@@ -38,14 +38,13 @@ public class App {
             }
             System.out.println("결과 : " + result);
 
-            System.out.println("종료하시겠습니까? (예 1, 아니오 2)");
-            int x = sc.nextInt();
+            System.out.println("종료하시겠습니까? (exit입력시 종료)");
+            String ex = sc.next();
 
-            if(x == 1){
+            if(ex.equals("exit")){
                 System.out.println("종료되었습니다.");
                 flag = false;
             }
         }
-
     }
 }
