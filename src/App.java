@@ -6,8 +6,9 @@ import java.util.regex.Pattern;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean flag = true;
-        while(flag){
+        int ans [] = new int[10];
+
+        for(int i=0; i<10; i++){
             System.out.print("첫 번째 숫자를 입력하세요 :");
             int num1 = sc.nextInt();
 
@@ -31,20 +32,15 @@ public class App {
                 case '/' -> {
                     if(num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
+                        i--;
                         break;
                     }
                     result = num1 / num2;
                 }
             }
+            ans[i] = result;
             System.out.println("결과 : " + result);
-
-            System.out.println("종료하시겠습니까? (exit입력시 종료)");
-            String ex = sc.next();
-
-            if(ex.equals("exit")){
-                System.out.println("종료되었습니다.");
-                flag = false;
-            }
         }
+
     }
 }
