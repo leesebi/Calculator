@@ -21,6 +21,13 @@ public class App {
 
             System.out.println(calculator.calculate(num1,num2, operator));
 
+            // 값 삭제
+            System.out.print("제일 오래된 데이터를 삭제하시겠습니까? (네 / 아니오)");
+            String re = sc.next();
+            if(re.equals("네")) {
+                calculator.removeResult();
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String st = sc.next();
 
