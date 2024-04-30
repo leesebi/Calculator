@@ -45,9 +45,17 @@ public class App {
             if(st.equals("remove")){
                 ans.remove(0);
             }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String in = sc.next();
+            if(in.equals("inquiry")){
+                for(int x:ans) System.out.print(x+" ");
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.next();
             if(exit.equals("exit")) flag = false;
         }
+
     }
 }
