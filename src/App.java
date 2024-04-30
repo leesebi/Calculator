@@ -6,11 +6,10 @@ import java.util.regex.Pattern;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] ans = new int[10];
+        List<Integer> ans = new ArrayList<>();
 
         boolean flag = true;
-        int i = 0;
-        while(flag){
+        while (flag){
             System.out.print("첫 번째 숫자를 입력하세요 :");
             int num1 = sc.nextInt();
 
@@ -34,33 +33,21 @@ public class App {
                 case '/' -> {
                     if(num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
-                        i--;
                         break;
                     }
                     result = num1 / num2;
                 }
             }
-            ans[i] = result;
-            i++;
-            System.out.println("결과 : " + result);
+            ans.add(result);
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String st = sc.next();
 
-            if(i == 10) {
-                System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-                String st = sc.next();
-                if(st.equals("exit")) flag = false;
-                else{
-                    int[] arr =new int[10];
-                    int x = 1;
-                    for(int j=0; j<9; j++){
-                        arr[j] = ans[x];
-                        x++;
-                    }
-                    for(int j=0; j<9; j++){
-                        ans[j] = arr[j];
-                    }
-                    i--;
-                }
+            if(st.equals("remove")){
+                ans.remove(0);
             }
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            String exit = sc.next();
+            if(exit.equals("exit")) flag = false;
         }
     }
 }
