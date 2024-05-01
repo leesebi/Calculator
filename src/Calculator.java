@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class Calculator {
-    private List<Integer> res = new ArrayList<>();
+    private List<Integer> res;
 
     // 필드에 접근해 가져올수 있도록 Getter 메서드
     public List<Integer> getRes() {
@@ -26,6 +26,11 @@ public class Calculator {
 
     public void inquiryResults(){
         System.out.println(getRes());
+    }
+
+    // 결과 초기화.
+    public Calculator(){
+        res = new ArrayList<>();
     }
 
     public int calculate(int num1, int num2, char op) throws InputExcetpion {

@@ -9,7 +9,9 @@ public class App {
 
         boolean flag = true;
         Calculator calculator = new Calculator();
+
         while(flag){
+
             System.out.print("첫 번째 숫자를 입력하세요:");
             int num1 = sc.nextInt();
             System.out.print("두 번째 숫자를 입력하세요:");
