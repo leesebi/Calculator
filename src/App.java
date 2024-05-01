@@ -8,7 +8,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         boolean flag = true;
-        Calculator calculator = new Calculator();
+
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
 
         while(flag){
             System.out.print("1: 사칙연산 2: 원의 넓이 ");
@@ -24,19 +26,34 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 char operator = sc.next().charAt(0);
 
-                System.out.println(calculator.calculate(num1,num2, operator));
+                int result = 0;
+                switch (operator){
+                    case '+' -> {
+                        result = arithmeticCalculator.add(num1, num2);
+                    }
+                    case '-' -> {
+                        result = arithmeticCalculator.sub(num1, num2);
+                    }
+                    case '/' -> {
+                        result = arithmeticCalculator.divide(num1, num2);
+                    }
+                    case '*' -> {
+                        result = arithmeticCalculator.multi(num1, num2);
+                    }
+                    default -> throw new InputExcetpion();
+                }
                 // 값 삭제
                 System.out.print("제일 오래된 데이터를 삭제하시겠습니까? (네 / 아니오) ");
                 String re = sc.next();
                 if(re.equals("네")) {
-                    calculator.removeResult();
+                    arithmeticCalculator.remove();
                 }
 
                 // 데이터 값 확인
                 System.out.print("데이터를 확인하시겠습니까? (네 / 아니오) ");
                 String ck = sc.next();
                 if(ck.equals("네")) {
-                    calculator.inquiryResults();
+                    arithmeticCalculator.inquiryResults();
                 }
 
             }
@@ -45,12 +62,12 @@ public class App {
             else if(n == 2){
                 System.out.print("반지름을 입력하세요 : ");
                 int r = sc.nextInt();
-                calculator.calculateCircleArea(r);
+                circleCalculator.CircleArea(r);
 
                 System.out.print("데이터를 확인하시겠습니까? (네 / 아니오) ");
                 String ck = sc.next();
                 if(ck.equals("네")) {
-                    calculator.circleInquiryResult();
+                    circleCalculator.result();
                 }
             }
 

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Calculator {
     private List<Integer> res;
     private List<Double> circle_res;
@@ -44,9 +43,6 @@ public class Calculator {
     public void inquiryResults(){
         System.out.println(getRes());
     }
-
-    // 결과 초기화.
-
 
     public int calculate(int num1, int num2, char op) throws InputExcetpion {
         int result = 0;
@@ -93,3 +89,4 @@ public class Calculator {
         System.out.println(getCircle_res());
     }
 }
+
