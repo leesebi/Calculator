@@ -44,7 +44,7 @@ public class Calculator {
         System.out.println(getRes());
     }
 
-    public int calculate(int num1, int num2, char op) throws InputExcetpion {
+    public int calculate(int num1, int num2, char op) throws InputException {
         int result = 0;
 
         switch (op){
@@ -63,13 +63,13 @@ public class Calculator {
             case '/' -> {
                 //  분모가 0보다 작거나 같으면 Exception 발생
                 if(num2 <= 0) {
-                    throw new InputExcetpion();
+                    throw new InputException();
                 }
                 result = num1/num2;
             }
 
             // case외에 다른 연산자가 들어오면 Exception 발생
-            default -> throw new InputExcetpion();
+            default -> throw new InputException();
         }
         res.add(result);
 
