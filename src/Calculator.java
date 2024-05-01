@@ -1,11 +1,14 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
 
 public class Calculator {
     private List<Integer> res;
+    private List<Double> circle_res;
+
+    // 3.14 반지름은 변하지 않는 값이라 변경할 수 없게 final을 사용하여 작성
+    final double pi = 3.14;
 
     // 필드에 접근해 가져올수 있도록 Getter 메서드
     public List<Integer> getRes() {
@@ -15,6 +18,20 @@ public class Calculator {
     // 필드에 접근해 수정할 수 있도록
     public void setRes(List<Integer> res) {
         this.res = res;
+    }
+
+
+    public List<Double> getCircle_res() {
+        return circle_res;
+    }
+
+    public void setCircle_res(List<Double> circle_res) {
+        this.circle_res = circle_res;
+    }
+
+    public Calculator(){
+        res = new ArrayList<>();
+        circle_res = new ArrayList<>();
     }
 
     // 가장 오래된 값을 지워야 하기때문에 인덱스 0
@@ -29,9 +46,7 @@ public class Calculator {
     }
 
     // 결과 초기화.
-    public Calculator(){
-        res = new ArrayList<>();
-    }
+
 
     public int calculate(int num1, int num2, char op) throws InputExcetpion {
         int result = 0;
@@ -63,5 +78,18 @@ public class Calculator {
         res.add(result);
 
         return result;
+    }
+
+    public double calculateCircleArea(int r){
+        double area = 0;
+
+        area = r * r * pi;
+
+        circle_res.add(area);
+        return area;
+    }
+
+    public void circleInquiryResult(){
+        System.out.println(getCircle_res());
     }
 }

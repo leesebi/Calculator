@@ -11,28 +11,47 @@ public class App {
         Calculator calculator = new Calculator();
 
         while(flag){
+            System.out.print("1: 사칙연산 2: 원의 넓이 ");
+            int n = sc.nextInt();
 
-            System.out.print("첫 번째 숫자를 입력하세요:");
-            int num1 = sc.nextInt();
-            System.out.print("두 번째 숫자를 입력하세요:");
-            int num2 = sc.nextInt();
+            // 사칙연산
+            if(n == 1){
+                System.out.print("첫 번째 숫자를 입력하세요: ");
+                int num1 = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력하세요: ");
+                int num2 = sc.nextInt();
 
-            System.out.print("사칙연산 기호를 입력하세요: ");
-            char operator = sc.next().charAt(0);
+                System.out.print("사칙연산 기호를 입력하세요: ");
+                char operator = sc.next().charAt(0);
 
-            System.out.println(calculator.calculate(num1,num2, operator));
-            // 값 삭제
-            System.out.print("제일 오래된 데이터를 삭제하시겠습니까? (네 / 아니오) ");
-            String re = sc.next();
-            if(re.equals("네")) {
-                calculator.removeResult();
+                System.out.println(calculator.calculate(num1,num2, operator));
+                // 값 삭제
+                System.out.print("제일 오래된 데이터를 삭제하시겠습니까? (네 / 아니오) ");
+                String re = sc.next();
+                if(re.equals("네")) {
+                    calculator.removeResult();
+                }
+
+                // 데이터 값 확인
+                System.out.print("데이터를 확인하시겠습니까? (네 / 아니오) ");
+                String ck = sc.next();
+                if(ck.equals("네")) {
+                    calculator.inquiryResults();
+                }
+
             }
 
-            // 데이터 값 확인
-            System.out.print("데이터를 확인하시겠습니까? (네 / 아니오)");
-            String ck = sc.next();
-            if(ck.equals("네")) {
-                calculator.inquiryResults();
+            // 원의 넓이
+            else if(n == 2){
+                System.out.print("반지름을 입력하세요 : ");
+                int r = sc.nextInt();
+                calculator.calculateCircleArea(r);
+
+                System.out.print("데이터를 확인하시겠습니까? (네 / 아니오) ");
+                String ck = sc.next();
+                if(ck.equals("네")) {
+                    calculator.circleInquiryResult();
+                }
             }
 
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) ");
