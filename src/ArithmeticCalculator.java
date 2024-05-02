@@ -5,15 +5,25 @@ import java.util.List;
 
 public class ArithmeticCalculator extends Calculator {
 
-    public ArithmeticCalculator(List<Double> results){
+    private final AddOperator addOperator; //반드시 초기화해야함 !!!!!!
+    private final SubOperator subOperator;
+    private final MultiOperator multiOperator;
+    private final DivideOperator divideOperator;
+
+    public ArithmeticCalculator(List<Double> results, AddOperator addOperator, SubOperator subOperator, MultiOperator multiOperator, DivideOperator divideOperator) {
         super(results);
+        this.addOperator = addOperator;
+        this.subOperator = subOperator;
+        this.multiOperator = multiOperator;
+        this.divideOperator = divideOperator;
     }
+
 
     public int calculate(int num1, int num2, char op) throws InputException {
         int result = 0;
 
         switch (op){
-            case '+' -> result = num1 + num2;
+            case '+' -> result = addOperator.operate(num1, num2);
 
             case '-' -> result = num1 - num2;
 

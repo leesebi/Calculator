@@ -7,9 +7,10 @@ public class App {
 
         boolean flag = true;
 
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>(), new AddOperator(), new SubOperator(), new MultiOperator(), new DivideOperator());
         CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
+        String str = "";
         while (flag) {
             System.out.print("1: 사칙연산 2: 원의 넓이 ");
             int n = sc.nextInt();
@@ -29,15 +30,15 @@ public class App {
 
                 // 값 삭제
                 System.out.print("제일 오래된 데이터를 삭제하시겠습니까? (네 / 아니오) ");
-                String re = sc.next();
-                if (re.equals("네")) {
+                str = sc.next();
+                if (str.equals("네")) {
                     arithmeticCalculator.removeResult(0);
                 }
 
                 // 데이터 값 확인
                 System.out.print("데이터를 확인하시겠습니까? (네 / 아니오) ");
-                String ck = sc.next();
-                if (ck.equals("네")) {
+                str = sc.next();
+                if (str.equals("네")) {
                     arithmeticCalculator.inquiryResults();
                 }
             } else if (n == 2) {
@@ -47,16 +48,16 @@ public class App {
                 circleCalculator.getResults().add(area);
 
                 System.out.print("데이터를 확인하시겠습니까? (네 / 아니오) ");
-                String ck = sc.next();
-                if (ck.equals("네")) {
+                str = sc.next();
+                if (str.equals("네")) {
                     circleCalculator.inquiryResults();
                 }
             }
 
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) ");
-            String st = sc.next();
+            str = sc.next();
 
-            if (st.equals("exit")) flag = false;
+            if (str.equals("exit")) flag = false;
         }
     }
 }
