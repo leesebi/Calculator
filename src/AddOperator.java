@@ -1,5 +1,5 @@
-public class AddOperator {
-    public int operate(int x, int y) {
+public class AddOperator  {
+    public double operate(int x, int y) {
         return x + y;
     }
 }

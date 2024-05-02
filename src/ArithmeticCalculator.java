@@ -3,7 +3,7 @@
 
 import java.util.List;
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator extends Calculator  {
 
     private final AddOperator addOperator; //반드시 초기화해야함 !!!!!!
     private final SubOperator subOperator;
@@ -25,16 +25,16 @@ public class ArithmeticCalculator extends Calculator {
         switch (op){
             case '+' -> result = addOperator.operate(num1, num2);
 
-            case '-' -> result = num1 - num2;
+            case '-' -> result = subOperator.operate(num1, num2);
 
-            case '*' -> result = num1 * num2;
+            case '*' -> result = multiOperator.operate(num1, num2);
 
             case '/' -> {
                 //  분모가 0보다 작거나 같으면 Exception 발생
                 if(num2 <= 0) {
                     throw new InputException();
                 }
-                result = num1/num2;
+                result = divideOperator.operate(num1, num2);
             }
 
             // case외에 다른 연산자가 들어오면 Exception 발생
@@ -49,4 +49,5 @@ public class ArithmeticCalculator extends Calculator {
             System.out.println("연산 결과 : " + result);
         }
     }
+
 }

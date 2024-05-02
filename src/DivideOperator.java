@@ -1,5 +1,5 @@
 public class DivideOperator {
-    public int operate(int x, int y){
+    public double operate(int x, int y){
         return x / y;
     }
 }
