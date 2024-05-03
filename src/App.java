@@ -7,7 +7,7 @@ public class App {
 
         boolean flag = true;
 
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>(), new AddOperator(), new SubOperator(), new MultiOperator(), new DivideOperator());
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
         CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
         String str = "";
